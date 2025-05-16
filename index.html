@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa Interativo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  
+
+  <!-- Barra superior -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <img src="images/logo.png" alt="Logo SEPLAN" class="logo">
+      <h1>Secretaria de Planejamento do Estado do Piauí</h1>
+    </div>
+    <div class="topbar-right">
+      <img src="images/logo_sumer.png" alt="Logo SUMER" class="logo-sumer">
+      <!--img src="images/logo_cepro.png" alt="Logo CEPRO" class="logo-sumer"-->
+    </div>
+  </header>  
+
+  <!-- Menu lateral retrátil -->
+  <nav class="sidebar">
+    <button id="toggleMenu">☰</button>
+    <ul>
+      <li><a href="#" id="btn-sobre"><img src="images/icon1.svg" alt=""><span>Sobre o projeto</span></a></li>
+      <!--li><a href="#" id="btn-legenda"><img src="images/legenda.svg" alt=""><span>Legenda</span></a></li-->
+      <li><a href="#" id="btn-fontes"><img src="images/icon2.svg" alt=""><span>Fontes</span></a></li>
+      <!-- Adicione mais se quiser -->
+    </ul>
+    <div class="sidebar-bottom">
+      <a href="#" id="btn-instrucoes"><img src="images/help.svg" alt=""><span>Instruções</span></a>
+      </div>
+  </nav>
+
+  <div id="loader">
+    <div class="loader-container">
+      <div class="loader-bar"></div> <!-- A animação circular por trás -->
+      <img src="images/logo_circular.png" alt="Logo" class="loader-logo"> <!-- O logo por cima -->
+    </div>
+  </div>
+</script>
+<script>
+// Detecta se é celular
+if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // Força viewport de desktop
+    var meta = document.querySelector('meta[name="viewport"]');
+    if (meta) {
+        meta.setAttribute('content', 'width=1200, initial-scale=1.0');
+    } else {
+        meta = document.createElement('meta');
+        meta.name = "viewport";
+        meta.content = "width=1200, initial-scale=1.0";
+        document.head.appendChild(meta);
+    }
+}
+</script>
+  <!-- Área do mapa -->
+  <main class="content">
+    <iframe src="mapa_qgis.html" frameborder="0"></iframe>
+  </main>
+  <!-- Modal de Imagem Ampliada -->
+<div id="imagem-modal" onclick="this.style.display='none'">
+    <img src="" alt="Imagem ampliada" />
+</div>
+
+  <div id="legenda-container">
+    <img src="images/legenda_exemplo.png" alt="Legenda do mapa" id="legenda-img">
+  </div>
+
+  <div id="popup-fontes">
+    <div class="popup-content">
+      <h3>Fontes de Dados</h3>
+      <p>Este mapa foi construído com base em dados fornecidos por:</p>
+      <ul>
+        <li>Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis (IBAMA), 2024</li>
+        <li>Instituto de Terras do Piauí (INTERPI), 2024</li>
+        <li>Serviço Geológico do Brasil (SGB), 2023</li>
+        <li>Sistema de Informação Geográfica da Mineração (SIGMINE), 2025</li>
+      </ul>
+      <button id="fechar-popup-fontes">Fechar</button>
+    </div>
+  </div>
+  
+  <div id="popup-sobre">
+    <div class="popup-content popup-central">
+      <h3>Sobre o Projeto</h3>
+      <p>Este mapa foi desenvolvido pela SEPLAN/PI através Superintendência de Mineração e Energias Renováveis (SUMER).</p>
+      <p>O mapa tem como objetivo fornecer informações territorializadas sobre a atividade minerária no estado do Piauí, promovendo a transparência e o acesso à informação.</p>
+      <p>O mapa interativo permite visualizar as localizações das áreas de extração mineral, facilitando o planejamento e a tomada de decisões.</p>
+      <p><b>Equipe técnica:</b></p>
+        <p><b><i>Desenvolvimento</i></b></p>
+        <p>João Pedros</p>
+        <p>Lucas Mendes</p>
+        <p>Luiz Vilarindo</p>
+        <p><b><i>Apoio e revisão</i></b></p>
+        <p>Agnaldo Francisco de Freitas Filho</p>
+        <p>Vanessa Rodrigues</p>
+        <p></p>
+
+      <button id="fechar-popup-sobre">Fechar</button>
+    </div>
+  </div>
+
+  <div id="popup-instrucoes">
+    <div class="popup-content popup-central">
+      <h3>Instruções de Uso</h3>
+      <p>🗺️ Navegue pelo mapa utilizando o mouse ou touch.</p>
+      <p>🔍 Use os botões de zoom para ampliar ou reduzir a visualização.</p>
+      <p>📍 Abaixo do zoom é possível medir a distância dos pontos e áreas</p>
+      <p>📌 Clique nos ícones do mapa para visualizar mais informações sobre cada ponto.</p>
+      <p>📊 Utilize a legenda para entender os gradientes de irradiação solar e velocidade dos ventos.</p>
+      <p>📞 Para mais informações, entre em contato com a SEPLAN/PI.</p>
+      <button id="fechar-popup-instrucoes">Fechar</button>
+    </div>
+  </div>
+<script>
+window.addEventListener('message', function(event) {
+    if (event.data === 'mostrar-legenda') {
+        document.getElementById('legenda-container').style.display = 'block';
+    }
+    if (event.data === 'esconder-legenda') {
+        document.getElementById('legenda-container').style.display = 'none';
+    }
+});
+</script>
+  <script src="js/loader.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/popup.js"></script>
+</body>
+</html>

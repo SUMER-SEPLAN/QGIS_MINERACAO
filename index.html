@@ -42,21 +42,7 @@
     </div>
   </div>
 </script>
-<script>
-// Detecta se é celular
-if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    // Força viewport de desktop
-    var meta = document.querySelector('meta[name="viewport"]');
-    if (meta) {
-        meta.setAttribute('content', 'width=1200, initial-scale=1.0');
-    } else {
-        meta = document.createElement('meta');
-        meta.name = "viewport";
-        meta.content = "width=1200, initial-scale=1.0";
-        document.head.appendChild(meta);
-    }
-}
-</script>
+<script src="js/forcarVersaoDesktop.js"></script>
   <!-- Área do mapa -->
   <main class="content">
     <iframe src="mapa_qgis.html" frameborder="0"></iframe>

@@ -22,11 +22,11 @@ function forcarVersaoDesktop() {
     // Modificar os meta tags para viewport
     const viewportMeta = document.querySelector('meta[name="viewport"]');
     if (viewportMeta) {
-      viewportMeta.setAttribute('content', 'width=1024, initial-scale=0.6, maximum-scale=1.0, user-scalable=yes');
+      viewportMeta.setAttribute('content', 'width=1024, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'viewport';
-      meta.content = 'width=1024, initial-scale=0.6, maximum-scale=1.0, user-scalable=yes';
+      meta.content = 'width=1024, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes';
       document.head.appendChild(meta);
     }
     

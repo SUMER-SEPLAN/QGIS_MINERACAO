@@ -50,6 +50,9 @@
     transition: right 0.3s ease;
     z-index: 3000;
 }
+#side-panel.panel-open {
+    right: 0;
+}
 #side-panel iframe {
     width: 100%;
     height: 100%;
@@ -57,18 +60,31 @@
 }
 #open-panel-btn {
     position: absolute;
-    right: 70px;
-    top: 32px;
+    right: 12px;
+    top: 90px;
     padding: 4px 6px;
     background: #f4f4f4;
     border: none;
     cursor: pointer;
-    z-index: 400;
+    z-index: 800;
     border-radius: 4px;
     transition: right 0.3s;
 }
 #open-panel-btn.panel-open {
     right: 26vw; /* Um pouco à esquerda do painel lateral */
+}
+@media (max-width: 600px) {
+    #side-panel {
+        width: 75vw;
+        right: -90vw; /* Fechado */
+        transition: right 0.3s;
+    }
+    #side-panel.panel-open {
+        right: 0; /* Aberto */
+    }
+    #open-panel-btn.panel-open {
+        right: 75vw;
+    }
 }
 </style>
 
@@ -77,14 +93,12 @@ function toggleSidePanel() {
     var sidePanel = document.getElementById("side-panel");
     var btn = document.getElementById("open-panel-btn");
     var icon = document.getElementById("btn-icon");
-    if (sidePanel.style.right === "0vw") {
-        sidePanel.style.right = "-25vw";
-        btn.classList.remove("panel-open");
-        icon.src = "images/consultar.png";
-    } else {
-        sidePanel.style.right = "0vw";
-        btn.classList.add("panel-open");
+    sidePanel.classList.toggle("panel-open");
+    btn.classList.toggle("panel-open");
+    if (sidePanel.classList.contains("panel-open")) {
         icon.src = "images/x.png";
+    } else {
+        icon.src = "images/consultar.png";
     }
 }
 </script>

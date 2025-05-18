@@ -315,7 +315,26 @@ html, body {
     0%   { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  
-  
-  
-  
+
+  .titulo-mobile {
+    display: none;
+  }
+  .titulo-desktop {
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    .titulo-desktop {
+      display: none;
+    }
+    .titulo-mobile {
+      display: block;
+      font-size: 14px; /* ajuste o tamanho conforme desejar */
+      line-height: 1.2;
+      font-weight: normal;
+      white-space: normal;
+    }
+  }
+
+
+

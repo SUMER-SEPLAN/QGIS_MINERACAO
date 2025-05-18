@@ -24,11 +24,43 @@
         }
         /*USAR NO NOVO PROJETO - fim*/
         </style>
+        <!-- USAR NO NOVO PROJETO - inicio botão fechar para mobile -->
+        <style>
+  #close-layer-switcher {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    z-index: 9999;
+    padding: 6px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #close-layer-switcher img {
+    display: block;
+  }
+
+  @media (min-width: 769px) {
+    #close-layer-switcher {
+      display: none !important;
+    }
+  }
+</style>
+<!-- USAR NO NOVO PROJETO - fim -->
+
         <title>MAPA DE MINERAÇÃO DO PIAUÍ</title>
     </head>
     <body>
         <div id="map">
         </div>
+        <!-- USAR NO NOVO PROJETO - inicio botão fechar para mobile-->
+         <button id="close-layer-switcher">
+  <img src="images/x.png" alt="Fechar" style="height: 24px; width: 24px;">
+</button><!-- USAR NO NOVO PROJETO - fim -->
+
         <!-- USAR NO NOVO PROJETO - inicio -->
         <!-- Botão e painel lateral para consulta de processo -->
 <button id="open-panel-btn" onclick="toggleSidePanel()" style="display:block;">
@@ -8165,12 +8197,16 @@ function abrirImagemNoMapa(src) {
 modalImg.addEventListener('wheel', function(e) {
     e.preventDefault();
     modalImg.style.transformOrigin = '50% 50%';
-    if (e.deltaY < 0) {
-        escalaAtual *= 1.1;
-    } else {
-        escalaAtual /= 1.1;
-        if (escalaAtual < 1) escalaAtual = 1;
-    }
+   var isMobile = window.innerWidth <= 768;
+var zoomFactor = isMobile ? 1.25 : 1.1;
+
+if (e.deltaY < 0) {
+    escalaAtual *= zoomFactor;
+} else {
+    escalaAtual /= zoomFactor;
+    if (escalaAtual < 1) escalaAtual = 1;
+}
+    
     modalImg.style.transform = 'scale(' + escalaAtual + ') translate(' + posX + 'px,' + posY + 'px)';
 });
 
@@ -8211,6 +8247,35 @@ modalImg.addEventListener('click', function(e) {
 modalDiv.onclick = function(e) {
     if (e.target === this) modalDiv.style.display = 'none';
 };
+</script>
+<!-- USAR NO NOVO PROJETO - fim -->
+ <!-- USAR NO NOVO PROJETO - inicio botão fechar para mobile -->
+<script>
+  const closeBtn = document.getElementById('close-layer-switcher');
+  const layersToggle = document.querySelector('.leaflet-control-layers-toggle');
+  const layersControl = document.querySelector('.leaflet-control-layers');
+
+  // Oculta o botão ao fechar o menu
+  closeBtn.addEventListener('click', function () {
+    if (layersControl) {
+      layersControl.classList.remove('leaflet-control-layers-expanded');
+    }
+    this.style.display = 'none';
+  });
+
+  // Mostra o botão somente quando o menu é aberto e está no mobile
+  if (layersToggle) {
+    layersToggle.addEventListener('click', function () {
+      setTimeout(() => {
+        const isExpanded = layersControl.classList.contains('leaflet-control-layers-expanded');
+        if (isExpanded && window.innerWidth <= 768) {
+          closeBtn.style.display = 'block';
+        } else {
+          closeBtn.style.display = 'none';
+        }
+      }, 100); // Pequeno delay para garantir que a classe foi aplicada
+    });
+  }
 </script>
 <!-- USAR NO NOVO PROJETO - fim -->
     </body>

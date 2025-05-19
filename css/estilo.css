@@ -360,5 +360,17 @@ html, body {
     font-size: 13px;
   }
 }
+@media (max-width: 600px) {
+  .popup-central {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+ @media (max-width: 359px) {
+  .popup-central {
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+} 
 
 

@@ -46,16 +46,7 @@ if (btnLegenda) {
 document.getElementById('btn-fontes').addEventListener('click', function (e) {
   e.preventDefault();
   const popup = document.getElementById('popup-fontes');
-  const sidebar = document.querySelector('.sidebar');
-  const isExpandido = sidebar.classList.contains('expandido');
-  const novaPosicao = isExpandido ? '210px' : '70px';
-
-  if (popup.style.display === 'none' || popup.style.display === '') {
-    popup.style.display = 'block';
-    popup.style.left = novaPosicao;
-  } else {
-    popup.style.display = 'none';
-  }
+  popup.style.display = (popup.style.display === 'none' || popup.style.display === '') ? 'flex' : 'none';
 });
 
 // Fecha o popup ao clicar no botão de fechar

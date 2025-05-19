@@ -156,15 +156,21 @@ html, body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   }
 
-  /* === POPUP === */
   #popup-fontes {
-    position: absolute;
-    top: 90px;
-    left: 70px;
-    z-index: 1003;
-    display: none;
-    transition: left 0.3s ease;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: none; /* Só isso aqui */
+  z-index: 1005;
+  background-color: rgba(0,0,0,0.5);
+
+  /* Centralização do conteúdo interno */
+  align-items: center;
+  justify-content: center;
+}
+
   
   .popup-content {
     background-color: #ffffff;

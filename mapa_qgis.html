@@ -2333,9 +2333,25 @@ function pop_Municpios_11(feature, layer) {
     imgHtml = '<img src="images/piripiri.png" alt="Piripiri" style="width:200px;cursor:pointer;" onclick="abrirImagemNoMapa(this.src)"><br>';
 } else if (nome === 'Caldeirão Grande do Piauí') {
     imgHtml = '<img src="images/caldeirao_grande.png" alt="Caldeirão Grande do Piauí" style="width:200px;cursor:pointer;" onclick="abrirImagemNoMapa(this.src)"><br>';
-} else if (nome === 'Chaval') {
-    imgHtml = '<img src="images/chaval.png" alt="Chaval" style="width:200px;cursor:pointer;" onclick="abrirImagemNoMapa(this.src)"><br>';
-}
+} else if (nome === 'Campo Alegre do Fidalgo') {
+    imgHtml = '<img src="images/campo_alegre_do_fidalgo.png" alt="Campo Alegre do Fidalgo" style="width:200px;cursor:pointer;" onclick="abrirImagemNoMapa(this.src)"><br>';
+} else if (nome === 'Dirceu Arcoverde') {
+    imgHtml = '<img src="images/bom_jardim.png" alt="Dirceu Arcoverde" style="width:200px;cursor:pointer;" onclick="abrirImagemNoMapa(this.src)"><br>';
+} else if (nome === 'Coronel José Dias') {
+    imgHtml = '<img src="images/coronel_jose_dias.png" alt="Coronel José Dias" style="width:200px;cursor:pointer;" onclick="abrirImagemNoMapa(this.src)"><br>';
+} else if (nome === 'Caracol') {
+    imgHtml = '<img src="images/peixe_caracol.png" alt="Caracol" style="width:200px;cursor:pointer;" onclick="abrirImagemNoMapa(this.src)"><br>';
+} else if (nome === 'Parnaguá') {
+    imgHtml = '<img src="images/parnagua.png" alt="Parnaguá" style="width:200px;cursor:pointer;" onclick="abrirImagemNoMapa(this.src)"><br>';
+} else if (nome === 'Júlio Borges') {
+    imgHtml = '<img src="images/julio_borges.png" alt="Júlio Borges" style="width:200px;cursor:pointer;" onclick="abrirImagemNoMapa(this.src)"><br>';
+} else if (nome === 'Fronteiras') {
+    imgHtml = '<img src="images/fronteiras.png" alt="Fronteiras" style="width:200px;cursor:pointer;" onclick="abrirImagemNoMapa(this.src)"><br>';
+} else if (nome === 'Curimatá') {
+    imgHtml = '<img src="images/curimata.png" alt="Curimatá" style="width:200px;cursor:pointer;" onclick="abrirImagemNoMapa(this.src)"><br>';
+} else if (nome === 'Buriti dos Lopes') {
+    imgHtml = '<img src="images/granja_buriti.png" alt="Buriti dos Lopes" style="width:200px;cursor:pointer;" onclick="abrirImagemNoMapa(this.src)"><br>';
+} 
     var codigo = feature.properties['CD_MUN'] !== null ? autolinker.link(String(feature.properties['CD_MUN']).replace(/'/g, '\'').toLocaleString()) : '';
     var popupContent = '<b>' + (nome ? nome : '') + '</b><br>' +
         (codigo ? '<span>Código IBGE: ' + codigo + '</span><br>' : '') +

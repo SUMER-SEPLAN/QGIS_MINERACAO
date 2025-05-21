@@ -50,13 +50,12 @@
   }
 </style>
 <!-- USAR NO NOVO PROJETO - fim -->
-
         <title>MAPA DE MINERAÇÃO DO PIAUÍ</title>
     </head>
     <body>
         <div id="map">
         </div>
-        <!-- USAR NO NOVO PROJETO - inicio botão fechar para mobile-->
+            <!-- USAR NO NOVO PROJETO - inicio botão fechar para mobile-->
          <button id="close-layer-switcher">
   <img src="images/x.png" alt="Fechar" style="height: 24px; width: 24px;">
 </button><!-- USAR NO NOVO PROJETO - fim -->
@@ -190,9 +189,9 @@ function toggleSidePanel() {
         <script src="data/Urnio_43.js"></script>
         <script src="data/Vermiculita_44.js"></script>
         <script src="data/Rodovias_45.js"></script>
-        <script src="data/Ferrovias_46.js"></script>
-        <script src="data/Portos_47.js"></script>
-        <script src="data/Aeroportos_48.js"></script>
+        <script src="data/Portos_46.js"></script>
+        <script src="data/Aeroportos_47.js"></script>
+        <script src="data/Ferrovias_48.js"></script>
         <script src="data/FASEAUTORIZAODEPESQUISA_49.js"></script>
         <script src="data/FASEAPTOPDISPONIBILIDADE_50.js"></script>
         <script src="data/FASECONCESSODELAVRA_51.js"></script>
@@ -285,7 +284,7 @@ function toggleSidePanel() {
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-11.133231443850002,-51.22124165913666],[-2.5452774601499275,-35.17747489386324]]);
+        }).fitBounds([[-11.133231443850002,-50.890499812412955],[-2.5452774601499275,-35.508216740586946]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -2313,7 +2312,7 @@ function toggleSidePanel() {
 			});
 			layer.bindPopup(content, { maxHeight: 400 });
         }
- //USAR NO NOVO PROJETO - inicio
+//USAR NO NOVO PROJETO - inicio
 // ...existing code...
 function pop_Municpios_11(feature, layer) {
     var nome = feature.properties['NM_MUN'];
@@ -5598,7 +5597,120 @@ function pop_Municpios_11(feature, layer) {
             style: style_Rodovias_45_0,
         });
         bounds_group.addLayer(layer_Rodovias_45);
-        function pop_Ferrovias_46(feature, layer) {
+        function pop_Portos_46(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">MD_LONGITU</th>\
+                        <td>' + (feature.properties['MD_LONGITU'] !== null ? autolinker.link(String(feature.properties['MD_LONGITU']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MD_LATITUD</th>\
+                        <td>' + (feature.properties['MD_LATITUD'] !== null ? autolinker.link(String(feature.properties['MD_LATITUD']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CD_LOCALIZ</strong><br />' + (feature.properties['CD_LOCALIZ'] !== null ? autolinker.link(String(feature.properties['CD_LOCALIZ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>NM_NOME</strong><br />' + (feature.properties['NM_NOME'] !== null ? autolinker.link(String(feature.properties['NM_NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Portos_46_0() {
+            return {
+                pane: 'pane_Portos_46',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Portos_46.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Portos_46');
+        map.getPane('pane_Portos_46').style.zIndex = 446;
+        map.getPane('pane_Portos_46').style['mix-blend-mode'] = 'normal';
+        var layer_Portos_46 = new L.geoJson(json_Portos_46, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Portos_46',
+            layerName: 'layer_Portos_46',
+            pane: 'pane_Portos_46',
+            onEachFeature: pop_Portos_46,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Portos_46_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Portos_46);
+        function pop_Aeroportos_47(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">MD_LONGITU</th>\
+                        <td class="visible-with-data" id="MD_LONGITU">' + (feature.properties['MD_LONGITU'] !== null ? autolinker.link(String(feature.properties['MD_LONGITU']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MD_LATITUD</th>\
+                        <td class="visible-with-data" id="MD_LATITUD">' + (feature.properties['MD_LATITUD'] !== null ? autolinker.link(String(feature.properties['MD_LATITUD']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CD_UTIL_AE'] !== null ? autolinker.link(String(feature.properties['CD_UTIL_AE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="NM_NOME" colspan="2"><strong>NM_NOME</strong><br />' + (feature.properties['NM_NOME'] !== null ? autolinker.link(String(feature.properties['NM_NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Classifica" colspan="2"><strong>Classifica</strong><br />' + (feature.properties['Classifica'] !== null ? autolinker.link(String(feature.properties['Classifica']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Aeroportos_47_0() {
+            return {
+                pane: 'pane_Aeroportos_47',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Aeroportos_47.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Aeroportos_47');
+        map.getPane('pane_Aeroportos_47').style.zIndex = 447;
+        map.getPane('pane_Aeroportos_47').style['mix-blend-mode'] = 'normal';
+        var layer_Aeroportos_47 = new L.geoJson(json_Aeroportos_47, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Aeroportos_47',
+            layerName: 'layer_Aeroportos_47',
+            pane: 'pane_Aeroportos_47',
+            onEachFeature: pop_Aeroportos_47,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Aeroportos_47_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Aeroportos_47);
+        function pop_Ferrovias_48(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Name" colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -5629,188 +5741,75 @@ function pop_Municpios_11(feature, layer) {
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Ferrovias_46_0(feature) {
+        function style_Ferrovias_48_0(feature) {
             switch(String(feature.properties['Situação'])) {
                 case 'Desativada':
                     return {
-                pane: 'pane_Ferrovias_46',
+                pane: 'pane_Ferrovias_48',
                 opacity: 1,
-                color: 'rgba(219,30,42,1.0)',
+                color: 'rgba(202,39,39,1.0)',
                 dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 4.0,
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
                 fillOpacity: 0,
                 interactive: true,
             }
                     break;
                 case 'Em Obra':
                     return {
-                pane: 'pane_Ferrovias_46',
+                pane: 'pane_Ferrovias_48',
                 opacity: 1,
-                color: 'rgba(0,0,255,1.0)',
+                color: 'rgba(0,46,255,1.0)',
                 dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 4.0,
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
                 fillOpacity: 0,
                 interactive: true,
             }
                     break;
                 case 'Em Operação':
                     return {
-                pane: 'pane_Ferrovias_46',
+                pane: 'pane_Ferrovias_48',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 4.0,
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
                 fillOpacity: 0,
                 interactive: true,
             }
                     break;
                 case 'Estudo':
                     return {
-                pane: 'pane_Ferrovias_46',
+                pane: 'pane_Ferrovias_48',
                 opacity: 1,
-                color: 'rgba(221,255,36,1.0)',
+                color: 'rgba(209,216,78,1.0)',
                 dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 4.0,
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
                 fillOpacity: 0,
                 interactive: true,
             }
                     break;
             }
         }
-        map.createPane('pane_Ferrovias_46');
-        map.getPane('pane_Ferrovias_46').style.zIndex = 446;
-        map.getPane('pane_Ferrovias_46').style['mix-blend-mode'] = 'normal';
-        var layer_Ferrovias_46 = new L.geoJson(json_Ferrovias_46, {
+        map.createPane('pane_Ferrovias_48');
+        map.getPane('pane_Ferrovias_48').style.zIndex = 448;
+        map.getPane('pane_Ferrovias_48').style['mix-blend-mode'] = 'normal';
+        var layer_Ferrovias_48 = new L.geoJson(json_Ferrovias_48, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Ferrovias_46',
-            layerName: 'layer_Ferrovias_46',
-            pane: 'pane_Ferrovias_46',
-            onEachFeature: pop_Ferrovias_46,
-            style: style_Ferrovias_46_0,
+            dataVar: 'json_Ferrovias_48',
+            layerName: 'layer_Ferrovias_48',
+            pane: 'pane_Ferrovias_48',
+            onEachFeature: pop_Ferrovias_48,
+            style: style_Ferrovias_48_0,
         });
-        bounds_group.addLayer(layer_Ferrovias_46);
-        function pop_Portos_47(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">MD_LONGITU</th>\
-                        <td>' + (feature.properties['MD_LONGITU'] !== null ? autolinker.link(String(feature.properties['MD_LONGITU']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">MD_LATITUD</th>\
-                        <td>' + (feature.properties['MD_LATITUD'] !== null ? autolinker.link(String(feature.properties['MD_LATITUD']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>CD_LOCALIZ</strong><br />' + (feature.properties['CD_LOCALIZ'] !== null ? autolinker.link(String(feature.properties['CD_LOCALIZ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>NM_NOME</strong><br />' + (feature.properties['NM_NOME'] !== null ? autolinker.link(String(feature.properties['NM_NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_Portos_47_0() {
-            return {
-                pane: 'pane_Portos_47',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/Portos_47.svg',
-            iconSize: [19.0, 19.0]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Portos_47');
-        map.getPane('pane_Portos_47').style.zIndex = 447;
-        map.getPane('pane_Portos_47').style['mix-blend-mode'] = 'normal';
-        var layer_Portos_47 = new L.geoJson(json_Portos_47, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Portos_47',
-            layerName: 'layer_Portos_47',
-            pane: 'pane_Portos_47',
-            onEachFeature: pop_Portos_47,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Portos_47_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Portos_47);
-        function pop_Aeroportos_48(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">MD_LONGITU</th>\
-                        <td class="visible-with-data" id="MD_LONGITU">' + (feature.properties['MD_LONGITU'] !== null ? autolinker.link(String(feature.properties['MD_LONGITU']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">MD_LATITUD</th>\
-                        <td class="visible-with-data" id="MD_LATITUD">' + (feature.properties['MD_LATITUD'] !== null ? autolinker.link(String(feature.properties['MD_LATITUD']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['CD_UTIL_AE'] !== null ? autolinker.link(String(feature.properties['CD_UTIL_AE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="NM_NOME" colspan="2"><strong>NM_NOME</strong><br />' + (feature.properties['NM_NOME'] !== null ? autolinker.link(String(feature.properties['NM_NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Classifica" colspan="2"><strong>Classifica</strong><br />' + (feature.properties['Classifica'] !== null ? autolinker.link(String(feature.properties['Classifica']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_Aeroportos_48_0() {
-            return {
-                pane: 'pane_Aeroportos_48',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/Aeroportos_48.svg',
-            iconSize: [19.0, 19.0]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Aeroportos_48');
-        map.getPane('pane_Aeroportos_48').style.zIndex = 448;
-        map.getPane('pane_Aeroportos_48').style['mix-blend-mode'] = 'normal';
-        var layer_Aeroportos_48 = new L.geoJson(json_Aeroportos_48, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Aeroportos_48',
-            layerName: 'layer_Aeroportos_48',
-            pane: 'pane_Aeroportos_48',
-            onEachFeature: pop_Aeroportos_48,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Aeroportos_48_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Aeroportos_48);
+        bounds_group.addLayer(layer_Ferrovias_48);
         function pop_FASEAUTORIZAODEPESQUISA_49(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -11239,9 +11238,9 @@ function pop_Municpios_11(feature, layer) {
             {label: '<img src="legend/FASEAPTOPDISPONIBILIDADE_50.png" /> FASE - APTO P/ DISPONIBILIDADE', layer: layer_FASEAPTOPDISPONIBILIDADE_50},
             {label: '<img src="legend/FASEAUTORIZAODEPESQUISA_49.png" /> FASE - AUTORIZAÇÃO DE PESQUISA', layer: layer_FASEAUTORIZAODEPESQUISA_49},]},
         {label: '<b>Infraestrutura de transporte</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Aeroportos_48.png" /> Aeroportos', layer: layer_Aeroportos_48},
-            {label: '<img src="legend/Portos_47.png" /> Portos', layer: layer_Portos_47},
-            {label: 'Ferrovias<br /><table><tr><td style="text-align: center;"><img src="legend/Ferrovias_46_Desativada0.png" /></td><td>Desativada</td></tr><tr><td style="text-align: center;"><img src="legend/Ferrovias_46_EmObra1.png" /></td><td>Em Obra</td></tr><tr><td style="text-align: center;"><img src="legend/Ferrovias_46_EmOperação2.png" /></td><td>Em Operação</td></tr><tr><td style="text-align: center;"><img src="legend/Ferrovias_46_Estudo3.png" /></td><td>Estudo</td></tr></table>', layer: layer_Ferrovias_46},
+            {label: 'Ferrovias<br /><table><tr><td style="text-align: center;"><img src="legend/Ferrovias_48_Desativada0.png" /></td><td>Desativada</td></tr><tr><td style="text-align: center;"><img src="legend/Ferrovias_48_EmObra1.png" /></td><td>Em Obra</td></tr><tr><td style="text-align: center;"><img src="legend/Ferrovias_48_EmOperação2.png" /></td><td>Em Operação</td></tr><tr><td style="text-align: center;"><img src="legend/Ferrovias_48_Estudo3.png" /></td><td>Estudo</td></tr></table>', layer: layer_Ferrovias_48},
+            {label: '<img src="legend/Aeroportos_47.png" /> Aeroportos', layer: layer_Aeroportos_47},
+            {label: '<img src="legend/Portos_46.png" /> Portos', layer: layer_Portos_46},
             {label: '<img src="legend/Rodovias_45.png" /> Rodovias', layer: layer_Rodovias_45},]},
         {label: '<b>Ocorrências Minerais</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: '<img src="legend/Vermiculita_44.png" /> Vermiculita', layer: layer_Vermiculita_44},
@@ -11311,7 +11310,7 @@ function pop_Municpios_11(feature, layer) {
             resetLabels([layer_Litologia_10]);
         });
         </script>
-               <!-- USAR NO NOVO PROJETO - inicio -->
+                       <!-- USAR NO NOVO PROJETO - inicio -->
 <div id="modal-imagem-mapa" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;">
   <img id="modal-img-mapa" src="" style="max-width:90vw;max-height:90vh;box-shadow:0 0 20px #000;">
 </div>

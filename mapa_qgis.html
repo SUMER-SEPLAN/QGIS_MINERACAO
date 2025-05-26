@@ -282,9 +282,21 @@ function toggleSidePanel() {
         <script src="data/GUAMINERALCARBOGS_136.js"></script>
         <script src="data/GUAMINERALPOTVELDEMESA_137.js"></script>
         <script>
-        var map = L.map('map', {
-            zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-11.133231443850002,-50.890499812412955],[-2.5452774601499275,-35.508216740586946]]);
+        //USAR NO NOVO PROJETO - INICIO
+        // Defina os bounds iniciais
+var initialBounds = [[-11.133231443850002,-51.29263795116267],[-2.5452774601499275,-35.10607860183723]];
+
+var map = L.map('map', {
+    zoomControl: false,
+    maxZoom: 28,
+    minZoom: 1, // valor temporário
+    maxBounds: initialBounds,
+    maxBoundsViscosity: 1.0
+}).fitBounds(initialBounds);
+
+// Defina o minZoom para o zoom atual após o fitBounds
+map.options.minZoom = map.getZoom();
+//USAR NO NOVO PROJETO - FIM
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});

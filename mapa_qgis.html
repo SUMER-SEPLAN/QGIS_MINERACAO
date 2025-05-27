@@ -17,7 +17,7 @@
             height: 100%;
             padding: 0;
             margin: 0;
-            /* USAR NO NOVO PROJETO - inicio */
+        /* USAR NO NOVO PROJETO - inicio */
         }
         .leaflet-top {
         margin-top: 20px !important; /* empurra os botões para baixo */
@@ -55,7 +55,7 @@
     <body>
         <div id="map">
         </div>
-            <!-- USAR NO NOVO PROJETO - inicio botão fechar para mobile-->
+        <!-- USAR NO NOVO PROJETO - inicio botão fechar para mobile-->
          <button id="close-layer-switcher">
   <img src="images/x.png" alt="Fechar" style="height: 24px; width: 24px;">
 </button><!-- USAR NO NOVO PROJETO - fim -->
@@ -457,7 +457,6 @@ map.options.minZoom = map.getZoom();
             style: style_readeaplicaodaLeidaMataAtlnticaPI_3_0,
         });
         bounds_group.addLayer(layer_readeaplicaodaLeidaMataAtlnticaPI_3);
-        map.addLayer(layer_readeaplicaodaLeidaMataAtlnticaPI_3);
         function pop_CorredorEcolgicoConfusesSerradaCapivaraPI_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -502,7 +501,6 @@ map.options.minZoom = map.getZoom();
             style: style_CorredorEcolgicoConfusesSerradaCapivaraPI_4_0,
         });
         bounds_group.addLayer(layer_CorredorEcolgicoConfusesSerradaCapivaraPI_4);
-        map.addLayer(layer_CorredorEcolgicoConfusesSerradaCapivaraPI_4);
         function pop_UnidadesdeConservaoEstadualPI_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -572,7 +570,6 @@ map.options.minZoom = map.getZoom();
             style: style_UnidadesdeConservaoEstadualPI_5_0,
         });
         bounds_group.addLayer(layer_UnidadesdeConservaoEstadualPI_5);
-        map.addLayer(layer_UnidadesdeConservaoEstadualPI_5);
         function pop_UnidadesdeConservaoFederalPIICMBIO2023_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -644,7 +641,6 @@ map.options.minZoom = map.getZoom();
             style: style_UnidadesdeConservaoFederalPIICMBIO2023_6_0,
         });
         bounds_group.addLayer(layer_UnidadesdeConservaoFederalPIICMBIO2023_6);
-        map.addLayer(layer_UnidadesdeConservaoFederalPIICMBIO2023_6);
         function pop_ZonadeAmortecimentodasUCsPI3Km_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -666,6 +662,10 @@ map.options.minZoom = map.getZoom();
                     <tr>\
                         <th scope="row">Hectares</th>\
                         <td class="visible-with-data" id="Hectares">' + (feature.properties['Hectares'] !== null ? autolinker.link(String(feature.properties['Hectares']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">BUFF_DIST</th>\
+                        <td class="visible-with-data" id="BUFF_DIST">' + (feature.properties['BUFF_DIST'] !== null ? autolinker.link(String(feature.properties['BUFF_DIST']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -703,7 +703,6 @@ map.options.minZoom = map.getZoom();
             style: style_ZonadeAmortecimentodasUCsPI3Km_7_0,
         });
         bounds_group.addLayer(layer_ZonadeAmortecimentodasUCsPI3Km_7);
-        map.addLayer(layer_ZonadeAmortecimentodasUCsPI3Km_7);
         function pop_LinhaImperial_8(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -2315,6 +2314,7 @@ map.options.minZoom = map.getZoom();
             style: style_Litologia_10_0,
         });
         bounds_group.addLayer(layer_Litologia_10);
+        map.addLayer(layer_Litologia_10);
         function pop_Municpios_11(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -2328,7 +2328,6 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 //USAR NO NOVO PROJETO - inicio
-// ...existing code...
 function pop_Municpios_11(feature, layer) {
     var nome = feature.properties['NM_MUN'];
     var imgHtml = '';
@@ -2404,7 +2403,6 @@ function pop_Municpios_11(feature, layer) {
             style: style_Municpios_11_0,
         });
         bounds_group.addLayer(layer_Municpios_11);
-        map.addLayer(layer_Municpios_11);
         function pop_Rios_12(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -11341,7 +11339,7 @@ function pop_Municpios_11(feature, layer) {
             resetLabels([layer_Litologia_10]);
         });
         </script>
-                       <!-- USAR NO NOVO PROJETO - inicio -->
+        <!-- USAR NO NOVO PROJETO - inicio -->
 <div id="modal-imagem-mapa" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;">
   <img id="modal-img-mapa" src="" style="max-width:90vw;max-height:90vh;box-shadow:0 0 20px #000;">
 </div>

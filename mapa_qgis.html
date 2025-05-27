@@ -284,7 +284,10 @@ function toggleSidePanel() {
         <script>
         //USAR NO NOVO PROJETO - INICIO
         // Defina os bounds iniciais
-var initialBounds = [[-11.133231443850002,-51.29263795116267],[-2.5452774601499275,-35.10607860183723]];
+var initialBounds = [[-18, -60], [5, -25]];
+if (window.innerWidth <= 600) {
+    initialBounds = [[-16, -62], [4, -23]];
+}
 
 var map = L.map('map', {
     zoomControl: false,
@@ -292,7 +295,7 @@ var map = L.map('map', {
     minZoom: 1, // valor temporário
     maxBounds: initialBounds,
     maxBoundsViscosity: 1.0
-}).fitBounds(initialBounds);
+}).fitBounds([[-12.5, -45.5], [-2.5, -40.5]]);
 
 // Defina o minZoom para o zoom atual após o fitBounds
 map.options.minZoom = map.getZoom();

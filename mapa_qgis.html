@@ -17,7 +17,7 @@
             height: 100%;
             padding: 0;
             margin: 0;
-         /* USAR NO NOVO PROJETO - inicio */
+        /* USAR NO NOVO PROJETO - inicio */
         }
         .leaflet-top {
         margin-top: 20px !important; /* empurra os botões para baixo */
@@ -55,7 +55,7 @@
     <body>
         <div id="map">
         </div>
-         <!-- USAR NO NOVO PROJETO - inicio botão fechar para mobile-->
+        <!-- USAR NO NOVO PROJETO - inicio botão fechar para mobile-->
          <button id="close-layer-switcher">
   <img src="images/x.png" alt="Fechar" style="height: 24px; width: 24px;">
 </button><!-- USAR NO NOVO PROJETO - fim -->
@@ -282,7 +282,7 @@ function toggleSidePanel() {
         <script src="data/GUAMINERALCARBOGS_136.js"></script>
         <script src="data/GUAMINERALPOTVELDEMESA_137.js"></script>
         <script>
-          //USAR NO NOVO PROJETO - INICIO
+        //USAR NO NOVO PROJETO - INICIO
         // Defina os bounds iniciais
 var initialBounds = [[-18, -60], [5, -25]];
 if (window.innerWidth <= 600) {
@@ -316,7 +316,7 @@ map.options.minZoom = map.getZoom();
             console.error('Botão com ID "open-panel-btn" não encontrado no DOM.');
         }
 //USAR NO NOVO PROJETO - FIM
-          var hash = new L.Hash(map);
+       var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         // remove popup's row if "visible-with-data"
@@ -720,7 +720,6 @@ map.options.minZoom = map.getZoom();
         });
         bounds_group.addLayer(layer_ZonadeAmortecimentodasUCsPI3Km_7);
         function pop_LinhaImperial_8(feature, layer) {
-            /*
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -779,7 +778,6 @@ map.options.minZoom = map.getZoom();
 				addClassToPopupIfMedia(content, e.popup);
 			});
 			layer.bindPopup(content, { maxHeight: 400 });
-            */
         }
 
         function style_LinhaImperial_8_0() {
@@ -794,7 +792,7 @@ map.options.minZoom = map.getZoom();
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(203,180,125,1.0)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_LinhaImperial_8');
@@ -802,7 +800,7 @@ map.options.minZoom = map.getZoom();
         map.getPane('pane_LinhaImperial_8').style['mix-blend-mode'] = 'normal';
         var layer_LinhaImperial_8 = new L.geoJson(json_LinhaImperial_8, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_LinhaImperial_8',
             layerName: 'layer_LinhaImperial_8',
             pane: 'pane_LinhaImperial_8',
@@ -5613,17 +5611,60 @@ function pop_Municpios_11(feature, layer) {
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Rodovias_45_0() {
-            return {
+        function style_Rodovias_45_0(feature) {
+            switch(String(feature.properties['cd_adminis'])) {
+                case 'Estadual':
+                    return {
                 pane: 'pane_Rodovias_45',
                 opacity: 1,
-                color: 'rgba(219,30,42,1.0)',
+                color: 'rgba(88,110,232,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
                 interactive: true,
+            }
+                    break;
+                case 'Federal':
+                    return {
+                pane: 'pane_Rodovias_45',
+                opacity: 1,
+                color: 'rgba(202,0,32,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Federal ou Estadual':
+                    return {
+                pane: 'pane_Rodovias_45',
+                opacity: 1,
+                color: 'rgba(138,43,226,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Em processo de verificação':
+                    return {
+                pane: 'pane_Rodovias_45',
+                opacity: 1,
+                color: 'rgba(255,215,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
             }
         }
         map.createPane('pane_Rodovias_45');
@@ -11283,7 +11324,7 @@ function pop_Municpios_11(feature, layer) {
             {label: 'Ferrovias<br /><table><tr><td style="text-align: center;"><img src="legend/Ferrovias_48_Desativada0.png" /></td><td>Desativada</td></tr><tr><td style="text-align: center;"><img src="legend/Ferrovias_48_EmObra1.png" /></td><td>Em Obra</td></tr><tr><td style="text-align: center;"><img src="legend/Ferrovias_48_EmOperação2.png" /></td><td>Em Operação</td></tr><tr><td style="text-align: center;"><img src="legend/Ferrovias_48_Estudo3.png" /></td><td>Estudo</td></tr></table>', layer: layer_Ferrovias_48},
             {label: '<img src="legend/Aeroportos_47.png" /> Aeroportos', layer: layer_Aeroportos_47},
             {label: '<img src="legend/Portos_46.png" /> Portos', layer: layer_Portos_46},
-            {label: '<img src="legend/Rodovias_45.png" /> Rodovias', layer: layer_Rodovias_45},]},
+            {label: 'Rodovias<br /><table><tr><td style="text-align: center;"><img src="legend/Rodovias_45_Estadual0.png" /></td><td>Estadual</td></tr><tr><td style="text-align: center;"><img src="legend/Rodovias_45_Federal1.png" /></td><td>Federal</td></tr><tr><td style="text-align: center;"><img src="legend/Rodovias_45_FederalouEstadual2.png" /></td><td>Federal ou Estadual</td></tr><tr><td style="text-align: center;"><img src="legend/Rodovias_45_Emprocessodeverificação3.png" /></td><td>Em processo de verificação</td></tr></table>', layer: layer_Rodovias_45},]},
         {label: '<b>Ocorrências Minerais</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: '<img src="legend/Vermiculita_44.png" /> Vermiculita', layer: layer_Vermiculita_44},
             {label: '<img src="legend/Urnio_43.png" /> Urânio', layer: layer_Urnio_43},
@@ -11320,8 +11361,8 @@ function pop_Municpios_11(feature, layer) {
             {label: '<img src="legend/Rios_12.png" /> Rios', layer: layer_Rios_12},
             {label: '<img src="legend/Municpios_11.png" /> Municípios', layer: layer_Municpios_11},
             {label: 'Litologia', layer: layer_Litologia_10},//USAR NO NOVO PROJETO - linha unica
-            {label: '<img src="legend/reaLitgio_9.png" /> Área Litígio', layer: layer_reaLitgio_9},
-            {label: '<img src="legend/LinhaImperial_8.png" /> Linha Imperial', layer: layer_LinhaImperial_8},
+            {label: '<img src="legend/reaLitgio_9.png" /> Área Litígio'},//USAR NO NOVO PROJETO - linha unica
+            {label: '<img src="legend/LinhaImperial_8.png" /> Linha Imperial'},//USAR NO NOVO PROJETO - linha unica
             {label: '<img src="legend/ZonadeAmortecimentodasUCsPI3Km_7.png" /> Zona de Amortecimento das UC\'s-PI - 3Km', layer: layer_ZonadeAmortecimentodasUCsPI3Km_7},
             {label: '<img src="legend/UnidadesdeConservaoFederalPIICMBIO2023_6.png" /> Unidades de Conservação Federal-PI (ICMBIO 2023)', layer: layer_UnidadesdeConservaoFederalPIICMBIO2023_6},
             {label: '<img src="legend/UnidadesdeConservaoEstadualPI_5.png" /> Unidades de Conservação Estadual-PI', layer: layer_UnidadesdeConservaoEstadualPI_5},
@@ -11352,7 +11393,7 @@ function pop_Municpios_11(feature, layer) {
             resetLabels([layer_Litologia_10]);
         });
         </script>
-                       <!-- USAR NO NOVO PROJETO - inicio -->
+                      <!-- USAR NO NOVO PROJETO - inicio -->
 <div id="modal-imagem-mapa" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;">
   <img id="modal-img-mapa" src="" style="max-width:90vw;max-height:90vh;box-shadow:0 0 20px #000;">
 </div>

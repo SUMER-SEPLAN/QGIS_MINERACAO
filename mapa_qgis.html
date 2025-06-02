@@ -721,57 +721,7 @@ map.options.minZoom = map.getZoom();
         bounds_group.addLayer(layer_ZonadeAmortecimentodasUCsPI3Km_7);
         function pop_LinhaImperial_8(feature, layer) {
             var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Area'] !== null ? autolinker.link(String(feature.properties['Area']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['area_km'] !== null ? autolinker.link(String(feature.properties['area_km']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['FID_area'] !== null ? autolinker.link(String(feature.properties['FID_area']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TIPO'] !== null ? autolinker.link(String(feature.properties['TIPO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['FID_TD_PI'] !== null ? autolinker.link(String(feature.properties['FID_TD_PI']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Terri_Dese'] !== null ? autolinker.link(String(feature.properties['Terri_Dese']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['FID_diss'] !== null ? autolinker.link(String(feature.properties['FID_diss']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TIPO_1'] !== null ? autolinker.link(String(feature.properties['TIPO_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['CD_UF'] !== null ? autolinker.link(String(feature.properties['CD_UF']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['NM_UF'] !== null ? autolinker.link(String(feature.properties['NM_UF']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['SIGLA_UF'] !== null ? autolinker.link(String(feature.properties['SIGLA_UF']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['NM_REGIAO'] !== null ? autolinker.link(String(feature.properties['NM_REGIAO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['AREA_KM2'] !== null ? autolinker.link(String(feature.properties['AREA_KM2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['layer'] !== null ? autolinker.link(String(feature.properties['layer']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['path'] !== null ? autolinker.link(String(feature.properties['path']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
+                     <tr><td colspan="2">Linha Imperial</td></tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -792,7 +742,7 @@ map.options.minZoom = map.getZoom();
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(203,180,125,1.0)',
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_LinhaImperial_8');
@@ -800,7 +750,7 @@ map.options.minZoom = map.getZoom();
         map.getPane('pane_LinhaImperial_8').style['mix-blend-mode'] = 'normal';
         var layer_LinhaImperial_8 = new L.geoJson(json_LinhaImperial_8, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_LinhaImperial_8',
             layerName: 'layer_LinhaImperial_8',
             pane: 'pane_LinhaImperial_8',
@@ -811,21 +761,7 @@ map.options.minZoom = map.getZoom();
         map.addLayer(layer_LinhaImperial_8);
         function pop_reaLitgio_9(feature, layer) {
             var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TIPO'] !== null ? autolinker.link(String(feature.properties['TIPO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['FID_TD_PI'] !== null ? autolinker.link(String(feature.properties['FID_TD_PI']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Terri_Dese'] !== null ? autolinker.link(String(feature.properties['Terri_Dese']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['FID_diss'] !== null ? autolinker.link(String(feature.properties['FID_diss']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TIPO_1'] !== null ? autolinker.link(String(feature.properties['TIPO_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
+                    <tr><td colspan="2">Área de Litígio</td></tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -846,7 +782,7 @@ map.options.minZoom = map.getZoom();
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(150,150,150,1.0)',
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_reaLitgio_9');
@@ -854,7 +790,7 @@ map.options.minZoom = map.getZoom();
         map.getPane('pane_reaLitgio_9').style['mix-blend-mode'] = 'normal';
         var layer_reaLitgio_9 = new L.geoJson(json_reaLitgio_9, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_reaLitgio_9',
             layerName: 'layer_reaLitgio_9',
             pane: 'pane_reaLitgio_9',

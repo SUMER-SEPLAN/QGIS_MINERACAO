@@ -107,6 +107,9 @@ window.addEventListener('message', function(event) {
     if (event.data === 'esconder-legenda') {
         document.getElementById('legenda-container').style.display = 'none';
     }
+    if (event.data === 'esconder-loader') {
+        hideLoader();
+    }
 });
 </script>
   <script src="js/loader.js"></script>

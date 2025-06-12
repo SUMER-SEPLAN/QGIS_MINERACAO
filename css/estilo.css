@@ -240,7 +240,9 @@ html, body {
     line-height: 1.4;
     margin: 100px auto; /* centralizado verticalmente */
     position: relative;
-  }
+    max-height: 75vh; /* Limita a altura a 85% da altura da tela */
+    overflow-y: auto; /* Adiciona a barra de rolagem vertical SE necessário */
+}
   
   .popup-central h3 {
     margin-top: 0;
@@ -337,7 +339,7 @@ html, body {
   }
   .titulo-mobile {
     display: block;
-    font-size: 19px; /* ajuste o tamanho conforme desejar */
+    font-size: 19px;
     line-height: 1.2;
     font-weight: normal;
     white-space: normal;
